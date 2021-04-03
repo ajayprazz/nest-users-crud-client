@@ -1,12 +1,13 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { AddUser } from "./pages/";
+import { AddUser, UsersList } from "./pages/";
 import "./App.css";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={AddUser} />
+        <Route path="/users" exact component={UsersList} />
+        <Route path="/users/add" exact component={AddUser} />
       </Switch>
     </BrowserRouter>
   );

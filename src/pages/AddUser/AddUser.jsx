@@ -3,7 +3,7 @@ import { AddUserForm } from "../../components/";
 
 const AddUser = () => {
   return (
-    <div className="add-user-catainer">
+    <div className="add-user-container">
       <AddUserForm />
     </div>
   );

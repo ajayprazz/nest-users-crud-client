@@ -10,8 +10,9 @@ export const useData = () => {
 
 const DataProvider = ({ children }) => {
   const [formSubmitting, setFormSubmitting] = useState(false);
-  const [dataLoading, setDataLoading] = useState(false);
+  const [dataLoading, setDataLoading] = useState(true);
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState(null);
 
   const addUser = async userData => {
     try {
@@ -39,12 +40,28 @@ const DataProvider = ({ children }) => {
     }
   };
 
+  const getUser = async id => {
+    try {
+      setDataLoading(true);
+      const response = await usersApi.get(`/users/${id}`);
+      console.log(response);
+      setUser(response.data.user);
+    } catch (err) {
+      console.log(err);
+      message.error("Error getting user");
+    } finally {
+      setDataLoading(false);
+    }
+  };
+
   const value = {
     addUser,
     formSubmitting,
     getAllUsers,
     dataLoading,
     users,
+    user,
+    getUser,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

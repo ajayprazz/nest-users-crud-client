@@ -1,0 +1,9 @@
+.users-list-container{
+    margin: 2rem;
+}
+
+.users-list-container .add-user-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}

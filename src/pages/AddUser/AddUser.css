@@ -1,0 +1,9 @@
+.add-user-container{
+    margin: 2rem;
+}
+
+.add-user-container .view-user-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}

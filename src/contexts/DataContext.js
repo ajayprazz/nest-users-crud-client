@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import usersApi from "../apis/users";
 import { message } from "antd";
+import { useHistory } from "react-router-dom";
 
 const DataContext = createContext();
 
@@ -13,6 +14,8 @@ const DataProvider = ({ children }) => {
   const [dataLoading, setDataLoading] = useState(true);
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState(null);
+
+  const history = useHistory();
 
   const addUser = async userData => {
     try {

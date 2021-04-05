@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { UsersTable } from "../../components";
+import { UsersTable, BackButton } from "../../components";
 import { useData } from "../../contexts/DataContext";
 import { Link, useHistory } from "react-router-dom";
 import { Button } from "antd";
@@ -41,6 +41,7 @@ const UsersList = () => {
   return (
     <div className="users-list-container">
       <div className="add-user-container">
+        <BackButton />
         <Button
           className="add-user-btn"
           onClick={() => history.push("/users/add")}

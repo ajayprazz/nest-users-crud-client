@@ -12,7 +12,7 @@ const AddUser = () => {
       <div className="view-user-container">
         <BackButton />
         <Button className="add-user-btn" onClick={() => history.push("/users")}>
-          Add New User
+          View All Users
         </Button>
       </div>
       <AddUserForm />

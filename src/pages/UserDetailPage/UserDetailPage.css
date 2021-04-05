@@ -1,0 +1,9 @@
+.user-detail-page-container{
+    margin: 2rem;
+}
+
+.user-detail-page-container .view-user-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}

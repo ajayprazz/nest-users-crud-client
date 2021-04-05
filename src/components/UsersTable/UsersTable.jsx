@@ -1,12 +1,8 @@
 import React from "react";
 import { Table } from "antd";
 
-const UsersTable = ({ users, columns }) => {
-  return (
-    <div>
-      <Table dataSource={users} columns={columns} />
-    </div>
-  );
+const UsersTable = ({ users, columns, paginationProps }) => {
+  return <Table dataSource={users} columns={columns} pagination={false} />;
 };
 
 export default UsersTable;

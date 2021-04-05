@@ -1,13 +1,27 @@
-import React, { useEffect } from "react";
-import { UsersTable, BackButton } from "../../components";
+import React, { useEffect, useState } from "react";
+import { UsersTable, BackButton, Loader } from "../../components";
 import { useData } from "../../contexts/DataContext";
 import { Link, useHistory } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Pagination } from "antd";
 import "./UsersList.css";
 
 const UsersList = () => {
-  const { getAllUsers, users } = useData();
+  const {
+    getAllUsers,
+    users,
+    totalUsers,
+    dataLoading,
+    setDataLoading,
+  } = useData();
   const history = useHistory();
+
+  const [current, setCurrent] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
+  const handleDetailView = id => {
+    setDataLoading(true);
+    history.push(`/users/${id}`);
+  };
 
   const columns = [
     {
@@ -29,14 +43,16 @@ const UsersList = () => {
       title: "Action",
       key: "action",
       render: (text, record) => (
-        <Link to={`/users/${record.id}`}>View Details</Link>
+        <Button onClick={() => handleDetailView(record.id)}>
+          View Details
+        </Button>
       ),
     },
   ];
 
   useEffect(() => {
-    getAllUsers();
-  }, []);
+    getAllUsers(current, pageSize);
+  }, [current, pageSize]);
 
   return (
     <div className="users-list-container">
@@ -49,7 +65,21 @@ const UsersList = () => {
           Add New User
         </Button>
       </div>
-      <UsersTable users={users} columns={columns} />
+      {!dataLoading ? (
+        <>
+          <UsersTable users={users} columns={columns} />
+          <Pagination
+            total={totalUsers}
+            current={current}
+            onChange={setCurrent}
+            pageSize={pageSize}
+            showSizeChanger={true}
+            onShowSizeChange={(current, size) => setPageSize(size)}
+          />
+        </>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

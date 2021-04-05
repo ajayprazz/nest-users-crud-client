@@ -2,8 +2,6 @@ import React from "react";
 import "./UserDetail.css";
 
 const UserDetail = ({ user }) => {
-  console.log(user);
-
   return (
     <div className="user-detail-container">
       <p>Name: {user.name}</p>

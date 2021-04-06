@@ -196,7 +196,7 @@ const AddUserForm = () => {
           ]}
         >
           <Select
-            placeholder="Select education background"
+            placeholder="Select preferred mode of contact"
             onChange={handleContactChange}
           >
             <Select.Option value="phone">Phone </Select.Option>

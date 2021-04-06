@@ -2,7 +2,7 @@
 
 ## Description
 
-A frontend for Nestjs Users' CRUD API build on Reactjs that displays users list, user's detail page and has a form for adding new users.
+A frontend for Nestjs Users' CRUD API build on Reactjs that displays users list, user's detail page and has a form for adding new users. This app us hosted at https://nest-users-crud-client.web.app.
 
 ## Installation
 
